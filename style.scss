@@ -1,0 +1,9 @@
+/* Au démarage lancez le script : "npm run sass" */
+@use "./sass/base";
+@use "./sass/Layout/header";
+@use "./sass/Layout/city";
+@use "./sass/Layout/explorer";
+@use "./sass/Layout/fonctionnement";
+@use "./sass/Layout/menu";
+@use "./sass/Layout/footer";
+@use "./sass/Pages/resto-1";

@@ -1,0 +1,223 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+@use "../utils/colors";
+@use "../utils/animations";
+
+#page-resto {
+  
+
+  header {
+      position: relative;
+  
+      .icon-link {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+  
+        &::before {
+          @include mixins.font-awsome($font-weight: 900);
+          content: "\f060";
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+  .banner img{
+    display: block;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  
+
+
+
+  .resto__title {
+    display: grid;
+    justify-content: center;
+    margin-top: -2rem;
+    margin-left: 7rem;
+    margin-right: 7rem;
+    position: relative;
+    font-family: "Shrikhand", "cursive";
+    padding: 2rem 7rem;
+    background-color: colors.$lightergrey;
+    border-radius: 2rem 2rem 0 0;
+    z-index: 1;
+    @media (max-width: variables.$breakpoint) {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      h2 {
+        padding-top: 1rem;
+      }
+    
+    .heart {
+        margin-left: 16rem;
+        margin-top: -1rem;
+        transform: translateY(-50%);
+        width: 2rem;
+        height: 2rem;
+        z-index: 2;
+    
+        @media (max-width: 420px) {
+          top: 29.5rem;
+          right: 1rem;
+        }
+    
+        &::before {
+          @include mixins.coeur(1, 400, inherit);
+          transition: opacity 200ms;
+        }
+    
+        &::after {
+          @include mixins.coeur(0, 900, transparent);
+          @include mixins.gradient;
+          transition: opacity 200ms;
+        }
+    
+        &:hover::before {
+          opacity: 0;
+        }
+    
+        &:hover::after {
+          opacity: 1;
+        }
+      }
+    
+    padding: 0 7rem;
+    @media (max-width: variables.$breakpoint) {
+      padding: 0;
+    }
+    
+  }
+  .resto-main{
+    padding: 0 7rem;
+    @media (max-width: variables.$breakpoint) {
+      padding: 0;
+      
+    }
+  }
+  
+  .menus {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    background-color: colors.$lightergrey;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    @media (max-width: variables.$breakpoint){
+      grid-template-columns: 1fr;
+      padding: 0rem;
+    }
+
+    
+    h3 {
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      &::after{
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 0rem;
+        height: 0.25rem;
+        width: 3rem;
+        background-color: colors.$color-tertiary;
+      }
+    }
+    .menus__category {
+      overflow: hidden;
+      @media (max-width: variables.$breakpoint) {
+        padding: 1rem;
+      }
+      
+      .menu-item {
+        $numberOfItems: 3;
+        @for $i from 1 through $numberOfItems {
+          &:nth-child(#{$i}) {
+            animation-delay: 100ms * $i;
+          }
+        }
+        display: flex;
+        background-color: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 0.5rem;
+        @include mixins.box-shadow;
+        animation: appear 1s;
+        animation-fill-mode: both;
+        .menu-item__prix{
+          margin-left: auto;
+          font-weight: 900;
+          padding: 1rem;
+          display: flex;
+          align-items: flex-end;
+        }
+        .menu-item__description {
+          padding: 1rem;
+          overflow: hidden;
+          h4, p{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+        .menu-item__check {
+          display: grid;
+          place-items: center;
+          flex-shrink: 0;
+          $button-with: 4rem;
+          border-radius: 0 1rem 1rem 0;
+          background-color: colors.$color-tertiary;
+          margin-right: -$button-with;
+          width: $button-with;
+          transition: margin-right 0.5s;
+          i {
+            $size: 2rem;
+            display: grid;
+            place-items: center;
+            background: white;
+            height: $size;
+            width: $size;
+            border-radius: 1rem;
+            color: colors.$color-tertiary;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          .menu-item__check {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  div.order {
+    height: 30vh;
+    display: grid;
+    place-items: center;
+    background-color: colors.$lightergrey;
+    button {
+      @include mixins.base-button;
+    }
+  }
+  
+}
+
+

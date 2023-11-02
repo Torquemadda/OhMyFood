@@ -1,0 +1,53 @@
+@use "../utils/mixins";
+@use "../utils/colors";
+
+
+.explorer {
+  text-align: center;
+  padding: 3rem 0;
+  background-color: colors.$lightergrey;
+  @media (max-width:1150px) {
+      padding: 2rem;
+      margin: 0;
+    }
+  & h2 {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }  
+  & p {
+    font-size: 1rem;
+  }  
+  & button {
+    @include mixins.base-button;
+    font-size: 1rem;
+  }  
+}
+
+.loader {
+  $animation-duration: 3s;
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms $animation-duration forwards;
+  i {
+    animation: spin $animation-duration infinite linear;
+    color: colors.$purple;
+  }
+}
+
+@keyframes disappear{
+  to{
+    transform: scale(0);
+  }
+}
+
+@keyframes spin {
+  to{
+    transform: rotate(360deg);
+  }
+}

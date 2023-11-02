@@ -9,7 +9,7 @@
   padding: 1rem;
   margin: 1rem;
   background-color: white;
-  @media (min-width:1150px) {
+  @media (min-width: variables.$breakpoint) {
       margin: 0rem;
       padding: 2rem 7rem;
     }
@@ -21,7 +21,7 @@
     margin: 0;
     gap: 2rem;
     list-style-type: none;
-    @media (min-width:1150px) {
+    @media (min-width: variables.$breakpoint) {
     flex-direction: row;
     padding: 1rem;
     margin: 1rem;

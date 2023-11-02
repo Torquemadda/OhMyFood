@@ -7,7 +7,7 @@
     background-color: #f6f6f6;
     padding: 1rem;
     margin: 0rem;
-    @media (min-width:1150px) {
+    @media (min-width: variables.$breakpoint) {
         padding: 2rem 7rem;
       }
 

@@ -1,5 +1,6 @@
 @use "../utils/mixins";
 @use "../utils/colors";
+@use "../utils/variables";
 
 
 .explorer {
@@ -8,7 +9,7 @@
   padding: 2rem;
   margin: 0;
   background-color: colors.$lightergrey;
-  @media (min-width:1150px) {
+  @media (min-width: variables.$breakpoint) {
     padding: 3rem 0;
     }
   & h2 {

@@ -5,19 +5,19 @@
 #homepage {
   .menus {
     background-color: #f6f6f6;
-    padding: 2rem  7rem;
-    @media (max-width:1150px) {
-        padding: 1rem;
-        margin: 0rem;
+    padding: 1rem;
+    margin: 0rem;
+    @media (min-width:1150px) {
+        padding: 2rem 7rem;
       }
 
     .menus__cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 2rem;
 
-      @media (max-width: variables.$breakpoint) {
-        grid-template-columns: repeat(1, 1fr);
+      @media (min-width: variables.$breakpoint) {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .new {

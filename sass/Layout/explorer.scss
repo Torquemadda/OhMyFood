@@ -5,10 +5,11 @@
 .explorer {
   text-align: center;
   padding: 3rem 0;
+  padding: 2rem;
+  margin: 0;
   background-color: colors.$lightergrey;
-  @media (max-width:1150px) {
-      padding: 2rem;
-      margin: 0;
+  @media (min-width:1150px) {
+    padding: 3rem 0;
     }
   & h2 {
     font-size: 1.5rem;
